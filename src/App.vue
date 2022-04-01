@@ -8,10 +8,12 @@
   <banner />
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import Banner from './components/Banner.vue'
 
-export default({
+
+export default defineComponent({
   name: 'App',
   components: {
     Banner

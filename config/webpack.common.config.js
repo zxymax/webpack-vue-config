@@ -12,7 +12,7 @@ const __src = path.resolve(__base, 'src')
 
 module.exports = {
   entry: {
-    app: helpers.root('src', 'main')
+    app: helpers.root('src', 'main.ts')
   },
   output: {
     path: helpers.root('dist'),
@@ -36,7 +36,15 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource'
-      }
+      },
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
+      },
     ]
   },
   resolve: {
